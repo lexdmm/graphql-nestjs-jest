@@ -1,11 +1,13 @@
 {
     "singleQuote": true,
     "editor.formatOnSave": true,
+    "endOfLine": "auto",
     "proseWrap": "always",
     "tabWidth": 4,
     "useTabs": false,
-    "trailingComma": "all",
+    "trailingComma": "none",
     "bracketSpacing": true,
-    "bracketSameLine": true,
-    "semi": false
+    "jsxSingleQuote": true,
+    "semi": false,
+    "spaces": true
 }
