@@ -8,8 +8,13 @@ import { User } from './user.entity'
 export class UserService {
     constructor(
         @InjectRepository(User) //Ta dizendo que o papel de criar a instancia é do repositório
-        private _userRepository: Repository<User>,
-    ) { }
+        private _userRepository: Repository<User>
+    ) {}
+
+    async findAllUsers(): Promise<User[]> {
+        const users = await this._userRepository.find()
+        return users
+    }
 
     async createUser(data: CreateUserInput): Promise<User> {
         const user = await this._userRepository.create(data)
@@ -17,7 +22,7 @@ export class UserService {
 
         if (!userSaved) {
             throw new InternalServerErrorException(
-                'Ocorreu um erro ao criar o usuário.',
+                'Ocorreu um erro ao criar o usuário.'
             )
         }
         return userSaved
